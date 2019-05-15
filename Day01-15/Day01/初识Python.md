@@ -130,20 +130,27 @@ python hello.py
 1. 单行注释 - 以#和空格开头的部分
 2. 多行注释 - 三个引号开头，三个引号结尾
 
-```Python
-"""
-第一个Python程序 - hello, world!
-向伟大的Dennis M. Ritchie先生致敬
+    ```Python
+    """
+    第一个Python程序 - hello, world!
+    向伟大的Dennis M. Ritchie先生致敬
+    
+    Version: 0.1
+    Author: Jerrylee
+    """
+    
+    print('hello, world!')
+    print('你好', '世界')
+    print('hello', 'world', sep=', ', end='!')
+    print('goodbye, world', end='!\n')
+    ```
 
-Version: 0.1
-Author: Jerrylee
-"""
+3. 多行注释 - 三个引号开头，三个引号结尾
 
-print('hello, world!')
-print('你好', '世界')
-print('hello', 'world', sep=', ', end='!')
-print('goodbye, world', end='!\n')
-```
+    ```Python
+    #!/usr/bin/env python
+    # -*- coding: utf-8 -*-
+    ```
 
 ### 其他工具介绍
 
