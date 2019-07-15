@@ -15,5 +15,7 @@ class QuestionAdmin(admin.ModelAdmin):
         ('Date information', {'fields': ['pub_date'], 'classes': ['collapse']}),
     ]
     inlines = [ChoiceInline]
+    list_filter = ['pub_date']                       # 时间过滤器
+    search_fields = ['question_text']               # 在列表的顶部增加一个搜索框
 
 admin.site.register(Question, QuestionAdmin)
