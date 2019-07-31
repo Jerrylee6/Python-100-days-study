@@ -3,15 +3,9 @@ from django.shortcuts import render
 # Create your views here.
 from django.shortcuts import render,redirect
 from . import models
-
-def index(request):
-    pass
-    return render(request,'login/index.html')
-
-from django.shortcuts import render,redirect
-from . import models
 from .forms import UserForm
 from .forms import RegisterForm
+import hashlib
 
 def index(request):
     pass
@@ -29,7 +23,7 @@ def login(request):
             password = login_form.cleaned_data['password']
             try:
                 user = models.User.objects.get(name=username)
-                if user.password == password:
+                if user.password == hash_code(password):
                     request.session['is_login'] = True
                     request.session['user_id'] = user.id
                     request.session['user_name'] = user.name
@@ -84,10 +78,16 @@ def register(request):
 
                 new_user = models.User.objects.create()
                 new_user.name = username
-                new_user.password = password1
+                new_user.password = hash_code(password1)
                 new_user.email = email
                 new_user.sex = sex
                 new_user.save()
                 return redirect('/login/')  # 自动跳转到登录页面
     register_form = RegisterForm()
     return render(request, 'login/register.html', locals())
+
+def hash_code(s, salt='mysite_login'):
+    h = hashlib.sha256()
+    s += salt
+    h.update(s.encode())  # update方法只接收bytes类型
+    return h.hexdigest()
