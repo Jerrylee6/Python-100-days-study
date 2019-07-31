@@ -12,6 +12,9 @@
     <!-- Bootstrap -->
     <link href="{% static 'bootstrap-3.3.7-dist/css/bootstrap.min.css' %}" rel="stylesheet">
 
+    <!-- Custom styles for this template -->
+    <link href="{% static 'bootstrap-3.3.7-dist/css/sticky-footer-navbar.css' %}" rel="stylesheet">
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -49,6 +52,11 @@
 
     {% block content %}{% endblock %}
 
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">Hi, 已经到底啦.</p>
+      </div>
+    </footer>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="{% static 'js/jquery-3.2.1.js' %}"></script>
